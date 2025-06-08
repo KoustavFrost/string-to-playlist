@@ -1,29 +1,42 @@
-# Create T3 App
+# String to Spotify Playlist
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Hello 👋🏼, Just Another Average Programmer here. I had this fun idea one day, what if i can convert any sentence to a spotify playlist? And here is my response. This stupid application.
 
-## What's next? How do I make an app with this?
+<br />
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+This application can convert any string to a spotify playlist (sort of).
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+<br />
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+Want to try? here are the steps to do:
 
-## Learn More
+### Spotify Developer:
+- Head over to [Spotify Developer](https://developer.spotify.com/) and login/sign up.
+- In the dashboard, create an app.
+- In the application page, make sure to enter the Redirect URI and check Web API. You can follow this [guide](https://developer.spotify.com/documentation/web-api/concepts/apps). 
+- The redirect url should be `http://127.0.0.1:3000/api/callback` if running on local system. If hosted, then just change the domain in the above URL.
+- After the app is created, get hold of client id and secret.
+- That's it on the Spotify side.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Application:
+- Make sure you have NodeJs up on your system. I used version `20.15.1`.
+- Clone the application. 
+- cd into the application.
+- Create a `.env` file using the command below: 
+```
+cp .env.example .env
+```
+- In the newly created `.env` file, paste the client id and secret. 
+- Also make sure that the callback url matches with the Dashboard.
+- Run this command to install the packages:
+```
+npm install
+```
+- Run this command to run the application on the local host:
+```
+npm run dev
+```
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+## Developers Note:
+Hello 👋🏼 once again. This application does not contain any sort of validations and checks. I have developed it crudly and need a lot of work to make it production ready. <br />
+Thanks 😄
