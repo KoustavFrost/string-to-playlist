@@ -5,7 +5,6 @@ import CreatePlaylist from "./createPlaylist";
 
 export default function HomePage() {
   const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
-  const clientSecret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
   const [accessToken, setAccessToken] = useState<string | null>(null);
 
   // Check for token on load
@@ -15,7 +14,6 @@ export default function HomePage() {
   }, []);
 
   const authenticateWithSpotify = () => {
-    console.log(`clientId: ${clientId} - clientSecret: ${clientSecret}`);
     const redirectUri =
       process.env.NEXT_PUBLIC_REDIRECT_URI ??
       "http://127.0.0.1:3000/api/callback";
@@ -74,6 +72,8 @@ export default function HomePage() {
               onClick={() => {
                 localStorage.removeItem("spotifyAccessToken");
                 localStorage.removeItem("spotifyRefreshToken");
+                localStorage.removeItem("spotifyUserId");
+                localStorage.removeItem("spotifyUserName");
                 setAccessToken(null);
               }}
               className="mt-4 text-xs text-gray-500 underline hover:text-gray-800"

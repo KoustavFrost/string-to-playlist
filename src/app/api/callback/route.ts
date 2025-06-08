@@ -34,9 +34,6 @@ export async function GET(req: Request) {
     );
   }
 
-  // Exchange the code for an access token (optional)
-  console.log("Authorization code received:", code);
-
   const response = await axios.post(
     "https://accounts.spotify.com/api/token",
     new URLSearchParams({
@@ -53,8 +50,6 @@ export async function GET(req: Request) {
       },
     },
   );
-
-  console.log(`response data: ${JSON.stringify(response.data)}`);
 
   const { access_token, refresh_token } = response.data as IAuthSuccessResponse;
 

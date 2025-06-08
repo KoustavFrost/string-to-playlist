@@ -1,12 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import type { CustomTrack } from "../types/spotify.types";
 import { getArtistNames } from "../utils";
+import Playlist from "./playlist";
 
 interface PreviewPlaylistProps {
   playlist: CustomTrack[];
+  sentence: string;
 }
 
-export default function PreviewPlaylist({ playlist }: PreviewPlaylistProps) {
+export default function PreviewPlaylist({
+  playlist,
+  sentence,
+}: PreviewPlaylistProps) {
   return (
     <div className="space-y-2 p-4">
       {playlist.map((track, index) => (
@@ -33,6 +40,8 @@ export default function PreviewPlaylist({ playlist }: PreviewPlaylistProps) {
           )}
         </div>
       ))}
+
+      <Playlist playlist={playlist} sentence={sentence} />
     </div>
   );
 }
